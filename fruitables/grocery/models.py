@@ -20,3 +20,10 @@ class Fruit(models.Model):
     text = models.TextField(blank=False, default='text')
     price = models.DecimalField(max_digits=6, decimal_places=2, )
     image = models.ImageField(upload_to='fruits')
+
+
+class testimonial(models.Model):
+    name = models.CharField(blank=False,max_length=50)
+    profession = models.CharField(blank=True, max_length=30)
+    text = models.TextField(blank=False, default='testimony')
+    image = models.ImageField(upload_to='profile_img')
