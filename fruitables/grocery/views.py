@@ -1,10 +1,13 @@
 from django.shortcuts import render
+from .models import hero 
 
 # Create your views here.
 
 
 def home(request):
-    return render(request, 'index.html', {'nav':'home'})
+    ero = hero.objects.all()
+    context = {'nav': 'index', 'hero':ero}
+    return render(request, 'index.html',)
 
 def cart(request):
     return render(request, 'cart.html', {'nav':'cart'})
