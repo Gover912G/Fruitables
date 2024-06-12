@@ -7,8 +7,8 @@ from .models import Hero ,Vegetable
 def home(request):
     hero = Hero.objects.all()[0]
     veg = Vegetable.objects.all()
-    context = {"nav":"index", "hero":hero, "veg": veg}
-    return render(request, 'index.html',)
+    context = {"nav":"index", "hero": hero, "veg": veg}
+    return render(request, 'index.html', context)
 
 def cart(request):
     return render(request, 'cart.html', {'nav':'cart'})
