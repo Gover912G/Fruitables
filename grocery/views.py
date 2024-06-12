@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Hero ,Vegetable
+from .models import Hero ,Vegetable,Fruit
 
 # Create your views here.
 
@@ -7,7 +7,8 @@ from .models import Hero ,Vegetable
 def home(request):
     hero = Hero.objects.all()[0]
     veg = Vegetable.objects.all()
-    context = {"nav":"index", "hero": hero, "veg": veg}
+    fruit = Fruit.objects.all()
+    context = {"nav":"index", "hero": hero, "veg": veg, "fruit": fruit}
     return render(request, 'index.html', context)
 
 def cart(request):
