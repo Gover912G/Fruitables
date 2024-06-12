@@ -28,7 +28,12 @@ def contact(request):
     return render(request, 'contact.html', {'nav':'contact'})
 
 def shop(request):
-    return render(request, 'shop.html', {'nav':'shop'})
+    fruit = Fruit.objects.all()
+    context = {
+        'nav':'shop',
+        'fruit':fruit,
+        }
+    return render(request, 'shop.html', context)
 
 def shopDetail(request):
     return render(request, 'shop-detail.html', {'nav':'shop-detail'})
