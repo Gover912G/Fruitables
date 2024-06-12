@@ -19,11 +19,11 @@
                         <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
                             <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item active rounded">
-                                    <img src="/media/{{ ero.img_fruits }}" class="img-fluid w-100 h-100 bg-secondary rounded" alt="First slide">
+                                    <img src="/media/{{ hero.img_fruits }}" class="img-fluid w-100 h-100 bg-secondary rounded" alt="First slide">
                                     <a href="#" class="btn px-4 py-2 text-white rounded">Fruites</a>
                                 </div>
                                 <div class="carousel-item rounded">
-                                    <img src="/media/{{ ero.img_vegetables }}" class="img-fluid w-100 h-100 rounded" alt="Second slide">
+                                    <img src="/media/{{ hero.img_vegetables }}" class="img-fluid w-100 h-100 rounded" alt="Second slide">
                                     <a href="#" class="btn px-4 py-2 text-white rounded">Vesitables</a>
                                 </div>
                             </div>
@@ -512,7 +512,7 @@
                     {% for x in veg %}
                     <div class="border border-primary rounded position-relative vesitable-item">
                         <div class="vesitable-img">
-                            <img src="http//:http://127.0.0.1:9000//media/{{ x.image }}" class="img-fluid w-100 rounded-top" alt="">
+                            <img src="media/{{ x.image }}" class="img-fluid w-100 rounded-top" alt="">
                         </div>
                         <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
                         <div class="p-4 rounded-bottom">
