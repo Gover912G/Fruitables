@@ -1,13 +1,13 @@
 from django.shortcuts import render
-from .models import hero ,vegetable
+from .models import Hero ,Vegetable
 
 # Create your views here.
 
 
 def home(request):
-    ero = hero.objects.all()
-    veg = vegetable.objects.all()
-    context = {'nav': 'index', 'hero':ero, 'veg': veg}
+    hero = Hero.objects.all()[0]
+    veg = Vegetable.objects.all()
+    context = {"nav":"index", "hero":hero, "veg": veg}
     return render(request, 'index.html',)
 
 def cart(request):

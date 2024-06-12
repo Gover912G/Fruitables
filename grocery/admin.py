@@ -1,9 +1,9 @@
 from django.contrib import admin
 
-from .models import hero,vegetable,Fruit,testimonial
+from .models import Hero,Vegetable,Fruit,Testimonial
 
 # Register your models here.
-admin.site.register(hero)
-admin.site.register(vegetable)
+admin.site.register(Hero)
+admin.site.register(Vegetable)
 admin.site.register(Fruit)
-admin.site.register(testimonial)
+admin.site.register(Testimonial)
