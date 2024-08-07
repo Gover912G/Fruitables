@@ -39,4 +39,10 @@ def shopDetail(request):
     return render(request, 'shop-detail.html', {'nav':'shop-detail'})
 
 def testimonial(request):
-    return render(request, 'testimonial.html', {'nav':'testimonial'})
+    testimonial = Testimonial.objects.all()
+    context = {
+        'nav':'testimonial',
+        "testimonial": testimonial,
+        }
+
+    return render(request, 'testimonial.html', context )
