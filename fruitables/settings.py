@@ -33,13 +33,18 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'grocery',
+    'users',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "crispy_forms",
+    'crispy_bootstrap4',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'  # or 'bootstrap5' if you are using Bootstrap 5
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
