@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from .forms import RegisterForm
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login ,logout
+from .forms import RegisterForm, LoginForm
 
 # Create your views here.
 def register_user(request):
@@ -7,15 +8,25 @@ def register_user(request):
         form = RegisterForm(request.POST)
         if form.is_valid:
             form.save()
-        return redirect('index')
+        return redirect('grocery:index')
     else:
-        form = RegisterForm(request.POST)
+        form = RegisterForm()
     return render(request, 'registration/register_user.html', {'form':form})
 
 def login_user(request):
-    pass
-    return render(request, login_user.html)
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid:
+            username = form.cleaned_data('username')
+            password = form.cleaned_data('password')
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect(request, 'grocery:index')
+    else:
+        form = LoginForm()
+    return render(request, 'registration/login_user.html', {'form':form})
     
 def logout_user(request):
-    pass
-    return render(request, logout_user.html)
+    logout(request)
+    return redirect(request, 'users:login')

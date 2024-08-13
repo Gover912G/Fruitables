@@ -40,6 +40,11 @@
 
 
         <!-- Navbar start -->
+         {% if 'users:login' and 'user:register' %}
+         <br>
+
+         {% else %}
+
         <div class="container-fluid fixed-top">
             <div class="container topbar bg-primary d-none d-lg-block">
                 <div class="d-flex justify-content-between">
@@ -65,16 +70,25 @@
                             <a href="{% url 'grocery:index' %}" class="nav-item nav-link {% if nav == 'index' %}active{% endif %}">Home</a>
                             <a href="{% url 'grocery:shop' %}" class="nav-item nav-link {% if nav == 'shop' %}active{% endif %}">Shop</a>
                             <a href="{% url 'grocery:shop-detail' %}" class="nav-item nav-link {% if nav == 'shop-detail' %}active{% endif %}">Shop Detail</a>
+                            
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">More</a>
                                 <div class="dropdown-menu m-0 bg-secondary rounded-0">
                                     <a href="{% url 'grocery:cart' %}" class="dropdown-item">Cart</a>
                                     <a href="{% url 'grocery:checkout' %}" class="dropdown-item">Checkout</a>
                                     <a href="{% url 'grocery:testimonial' %}" class="dropdown-item">Testimonial</a>
+                                
                                     <a href="404.html" class="dropdown-item">404 Page</a>
                                 </div>
                             </div>
                             <a href="{% url 'grocery:contact' %}" class="nav-item nav-link {% if nav == 'shop-detail' %}active{% endif %}">Contact</a>
+                            {% if request.user.is_authenticated %}
+                                    <p>{{ request.user.username }}</p>
+                                    <a href="{% url 'users:logout' %}">Logout</a>
+                                    {% else %}
+                                    <a href="{% url 'users:login' %}">Login</a>
+                                    <a href="{% url 'users:register' %}">Signup</a>
+                                    {% endif %}
                         </div>
                         <div class="d-flex m-3 me-0">
                             <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
@@ -110,6 +124,7 @@
                 </div>
             </div>
         </div>
+        {% endif %}
         <!-- Modal Search End -->
 
         {% block main %}
