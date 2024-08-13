@@ -9,8 +9,21 @@
    <form action="/" method = 'POST', class = 'form-group'>
       {% csrf_token %}
       {% comment %} {{form.as_p | crispy }} {% endcomment %}
-      {% crispy form %}
+      {% comment %} {% crispy form %} {% endcomment %}
+
+      
+         <div class="form-group">
+           <label for="usetname">Username</label>
+           <input type="text" class="form-control" name="usetname" aria-describedby="emailHelp" placeholder="Enter your username">
+           {% comment %} <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> {% endcomment %}
+         </div>
+         <div class="form-group">
+           <label for="password">Password</label>
+           <input type="password" class="form-control" name="password" placeholder="Password">
+         </div>
+         
       <button type="submit" class = 'btn btn-success'>Register</button>
+      <a href="{% url 'users:register' %}">Dont have Account Create</a>
   
    </form>
 </div>
