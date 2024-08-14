@@ -4,6 +4,8 @@
 
 
 {% block main %}
+<div class="container-fluid py-5 mb-5 hero-header">
+
 <div class="content-section col-md-8 col-md-offset-2">
    <form  method = 'post' class = 'form-group'>
       {% csrf_token %}
@@ -32,6 +34,7 @@
       <a href="{% url 'users:login' %}">Already have account?</a>
   
    </form>
+  </div>
 </div>
 
 
